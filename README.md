@@ -6,7 +6,7 @@ Ajuste al árbol DMEE **ZCGI_CT** para que los nodos de `CdtrAcct > Id` se condi
 
 | Objeto | Tipo | Descripción |
 |---|---|---|
-| `ZCL_DMEE_VIA_RECEPTOR` | Clase | Lógica central: `GET_PAYEE` devuelve el receptor alternativo (o el tercero) para datos bancarios; `GET_VIA` devuelve la vía de pago del receptor. Lee `I_SupplierCompany` e `I_Supplier`, con buffer por proveedor + sociedad. |
+| `ZCL_DMEE_VIA_RECEPTOR` | Clase | Lógica central: `GET_PAYEE` devuelve el receptor alternativo (o el tercero) para datos bancarios; `GET_VIA` devuelve la vía de pago del receptor. Lee `I_SupplierCompany` e `I_Supplier`, sin buffer (siempre lee el maestro actual). |
 | `Z_DMEE_EXIT_VIA_RECEPTOR` | Módulo de funciones | Exit del nodo técnico `RecepPago`. Llama a la clase y devuelve la vía en `C_VALUE`. |
 | `ZDMEE_EXIT_AJU_CTA` | Módulo de funciones (existente) | Exit del subnodo `Othr > Id`. Ver cambios en `src/zdmee_exit_aju_cta_cambios.abap`. |
 
