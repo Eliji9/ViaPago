@@ -6,7 +6,7 @@ Ajuste al árbol DMEE **ZCGI_CT** para que los nodos de `CdtrAcct > Id` se condi
 
 | Objeto | Tipo | Descripción |
 |---|---|---|
-| `ZCL_DMEE_VIA_RECEPTOR` | Clase | Lógica central: busca el receptor alternativo y su vía de pago. Lee `I_SupplierCompany` e `I_Supplier`, con buffer por proveedor + sociedad. |
+| `ZCL_DMEE_VIA_RECEPTOR` | Clase | Lógica central: `GET_PAYEE` devuelve el receptor alternativo (o el tercero) para datos bancarios; `GET_VIA` devuelve la vía de pago del receptor. Lee `I_SupplierCompany` e `I_Supplier`, con buffer por proveedor + sociedad. |
 | `Z_DMEE_EXIT_VIA_RECEPTOR` | Módulo de funciones | Exit del nodo técnico `RecepPago`. Llama a la clase y devuelve la vía en `C_VALUE`. |
 | `ZDMEE_EXIT_AJU_CTA` | Módulo de funciones (existente) | Exit del subnodo `Othr > Id`. Ver cambios en `src/zdmee_exit_aju_cta_cambios.abap`. |
 
@@ -32,6 +32,7 @@ Mapeo de campos de tabla a vistas CDS:
 
 ## Pendientes
 
+- Confirmar con funcional que la referencia en `ZR_TFI_PROV_REF` se registra con el receptor.
 - Confirmar en debug el campo del tercero en `FPAYH` (normalmente `GPA1R`).
 - Confirmar con funcional la regla cuando el receptor tiene varias vías en `PaymentMethodsList` (hoy se toma la primera).
 - Confirmar nombres de campo de las vistas en el release del sistema.
